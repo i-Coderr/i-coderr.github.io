@@ -1,0 +1,271 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Portfolio</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/504c19067f.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" async="" src="/js/portfolio.js" data-loaded="true"></script>
+
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Montserrat", sans-serif
+        }
+
+        #myImg, #myImg2, #myImg3, #myImg4, #myImg5, #myImg6 {
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #myImg:hover, #myImg2:hover, #myImg3:hover, #myImg4:hover, #myImg5:hover, #myImg6:hover {
+            opacity: 0.7;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        #caption, #caption2, #caption3, #caption4, #caption5, #caption6 {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        .modal-content, #caption, #caption2, #caption3, #caption4, #caption5, #caption6{
+            -webkit-animation-name: zoom;
+            -webkit-animation-duration: 0.6s;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @-webkit-keyframes zoom {
+            from {-webkit-transform: scale(0)}
+            to {-webkit-transform: scale(1)}
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .w3-row-padding img {
+            margin-bottom: 12px
+        }
+    </style>
+
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1125.0" data-gr-ext-installed="">
+<div class="bg-triangles">
+    <main class="main">
+        <div class="container gutter-top">
+            <header class="header box">
+                <div class="header__left">
+                    <div class="header__photo"><img src="/img/photo.jpg" alt="" width="320" height="320" class="header__photo-img"></div>
+                    <div class="header__base-info"><h4 class="title titl--h4"> Chyngyz <span class="weight--400">  Sharshekeev </span>
+                    </h4>
+                        <div class="status"> Software Developer | DevOps </div>
+                        <ul class="header__social">
+                            <li><a target="_blank" rel="noopener" href="https://github.com/i-Coderr"
+                                   title="Github"><i class="fa fa-github" style="font-size:24px"></i></a></li>
+                            <li><a target="_blank" rel="noopener" href="https://www.linkedin.com/in/chyngyz-sharshekeev-2b972a56/"
+                                   title="LinkedIn"><i class="fa fa-linkedin-square" style="font-size:24px"></i></a></li>
+                            <li><a target="_blank" rel="noopener" href="https://t.me/iCoderr"
+                                   title="Telegram"><i class="fa fa-telegram" style="font-size:24px"></i></a></li>
+                            <li><a target="_blank" rel="noopener" href="https://twitter.com/CSharshekeev"
+                                   title="Twitter"><i class="fa fa-twitter" style="font-size:24px"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="header__right">
+                    <ul class="header__contact">
+                        <li><span class="overhead"> Email </span>
+                            <a href="mailto:sharshekeev.chyngyz@gmail.com" target="_blank" rel="noopener"
+                               title="Email"> sharshekeev.chyngyz@gmail.com <i class="fa fa-envelope-o"></i></a></li>
+                        <li><span class="overhead"> Location </span>
+                            Bishkek, Kyrgyz Republic <i class="fa fa-map-marker" aria-hidden="true"></i></li>
+                    </ul>
+                    <ul class="header__contact">
+                        <li><span class="overhead"> CV </span>
+                            <a href="https://drive.google.com/file/d/1U6Z1BaPfhoHW4tW4KxHEo0Oag1U-i6c_/view?usp=drive_link"
+                               target="_blank" rel="noopener"
+                               title="CV"> Download <i class="fa fa-cloud-download"></i></a></li>
+                        <li><span class="overhead"> Open to work </span> Yes</li>
+                    </ul>
+                </div>
+            </header>
+
+            <div class="row sticky-parent">
+                <aside class="col-12 col-md-12 col-lg-2">
+                    <div class="sidebar box sticky-column">
+                        <ul class="nav">
+                            <li class="nav__item"><a href="/" class=""><i class="fa fa-user-o" style="font-size:36px"></i> About </a></li>
+                            <li class="nav__item"><a href="/resume" class=""><i class="fa fa-file-text-o" style="font-size:36px"></i> Resume</a></li>
+                            <li class="nav__item"><a href="/portfolio" class="router-link-exact-active router-link-active" aria-current="page"><i class='fas fa-project-diagram' style='font-size:30px'></i> Portfolio </a></li>
+                            <li class="nav__item"><a href="/contact" class=""><i class="fa fa-envelope" style='font-size:30px'></i>Contact </a></li>
+                        </ul>
+                    </div>
+                </aside>
+                <div class="col-12 col-md-12 col-lg-10">
+                    <div class="box box-content">
+                        <div>
+                            <div class="pb-0 pb-sm-2"><h1 class="title title--h1 first-title title__separate">Portfolio </h1>
+                                <div class="w3-row-padding" style="margin:0 -16px">
+                                    <div class="w3-half">
+                                        <div class="box-gallery-grid__item box__border">
+                                            <h4>eBook</h4>
+                                            <img id="myImg" src="/img/ebook.jpg" class="img-responsive"
+                                                 style="width:100%" alt="">
+                                            <div id="myModal" class="modal">
+                                                <span class="close">&times;</span>
+                                                <img src="/img/ebook.jpg" class="modal-content" id="modalImg" alt="">
+                                                <div id="caption"></div>
+                                            </div>
+                                            <div class="gallery-grid__caption">
+                                                <a href="https://github.com/peaksoft-school/ebook-b5"
+                                                   class="link-btn mt-2"> Github </a>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="box-gallery-grid__item box__border">
+                                            <h3>Bilingual</h3>
+                                            <img id="myImg2" src="/img/bilingual.jpg" class="img-responsive"
+                                                 style="width:100%" alt="">
+                                            <div id="myModal2" class="modal">
+                                                <span class="close">&times;</span>
+                                                <img src="/img/bilingual.jpg" class="modal-content" id="modalImg2"
+                                                     alt="">
+                                                <div id="caption2"></div>
+                                            </div>
+                                            <div class="gallery-grid__caption">
+                                                <a href="https://github.com/peaksoft-school/bilingual-b4"
+                                                   class="link-btn mt-2"> Github </a>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="box-gallery-grid__item box__border">
+                                            <h3>Task Tracker</h3>
+                                            <img id="myImg3" src="/img/tasktracker.jpg" class="img-responsive"
+                                                 style="width:100%" alt="">
+                                            <div id="myModal3" class="modal">
+                                                <span class="close">&times;</span>
+                                                <img src="/img/tasktracker.jpg" class="modal-content" id="modalImg3"
+                                                     alt="">
+                                                <div id="caption3"></div>
+                                            </div>
+                                            <div class="gallery-grid__caption">
+                                                <a href="https://github.com/peaksoft-school/bilingual-b4"
+                                                   class="link-btn mt-2"> Github </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="w3-half">
+                                        <div class="box-gallery-grid__item box__border">
+                                            <h3>Giftlist</h3>
+                                            <img id="myImg4" src="/img/giftlist.jpg" class="img-responsive"
+                                                 style="width:100%" alt="">
+                                            <div id="myModal4" class="modal">
+                                                <span class="close">&times;</span>
+                                                <img src="/img/giftlist.jpg" class="modal-content" id="modalImg4" alt="">
+                                                <div id="caption4"></div>
+                                            </div>
+                                            <div class="gallery-grid__caption">
+                                                <a href="https://github.com/peaksoft-school/giftlist-b6"
+                                                   class="link-btn mt-2"> Github </a>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="box-gallery-grid__item box__border">
+                                            <h3>Gadgetarium</h3>
+                                            <img id="myImg5" src="/img/gadgetarium.jpg" class="img-responsive"
+                                                 style="width:100%" alt="">
+                                            <div id="myModal5" class="modal">
+                                                <span class="close">&times;</span>
+                                                <img src="/img/gadgetarium.jpg" class="modal-content" id="modalImg5"
+                                                     alt="">
+                                                <div id="caption5"></div>
+                                            </div>
+                                            <div class="gallery-grid__caption">
+                                                <a href="https://github.com/peaksoft-school/Gadgetarium-m4"
+                                                   class="link-btn mt-2"> Github </a>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="box-gallery-grid__item box__border">
+                                            <h3>Peaksoft LMS</h3>
+                                            <img id="myImg6" src="/img/peaksoftlms.jpg" class="img-responsive"
+                                                 style="width:100%" alt="">
+                                            <div id="myModal6" class="modal">
+                                                <span class="close">&times;</span>
+                                                <img src="/img/peaksoftlms.jpg" class="modal-content" id="modalImg6"
+                                                     alt="">
+                                                <div id="caption6"></div>
+                                            </div>
+                                            <div class="gallery-grid__caption">
+                                                <a href="https://github.com/peaksoft-school/peaksoftlms-a-b4"
+                                                   class="link-btn mt-2"> Github </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="footer">
+                        <span> Copyright © 2023 | Chyngyz Sharshekeev </span>
+                    </footer>
+
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+</body>
+</html>
