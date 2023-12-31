@@ -13,5 +13,5 @@ Explore the detailed breakdown of my skills and experience in the resume section
 #### Portfolio:
 Discover my verious pet projects on GitHub through section, each offering a anuique perspective on my skills and interests.
 
-#### contact:
+#### Contact:
 In this section you can drop a message via email using contact form.
