@@ -11,7 +11,7 @@ In this section, I've summarized my experience to give a glimpse into my profess
 Explore the detailed breakdown of my skills and experience in the resume section.
 
 #### Portfolio:
-Discover my various pet projects on GitHub through sections, each offering a unique perspective on my skills and interests.
+Discover my various pet projects on GitHub through links, each offering a unique perspective on my skills and interests.
 
 #### Contact:
 In this section, you can drop a message via email using the contact form.
