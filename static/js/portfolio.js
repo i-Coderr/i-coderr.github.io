@@ -17,10 +17,8 @@ function closeModal(modalId) {
 
 // Function to add event listener for each image
 function addImageClickListener(imgId, modalId, captionId) {
-    var imgElement = document.getElementById(imgId);
-    imgElement.addEventListener("click", function () {
+    document.getElementById(imgId).addEventListener("click", function () {
         openModal(modalId, "modalImg", this.src, this.alt, captionId);
-        closeModal(modalId); // Close modal when the image is clicked
     });
 }
 
