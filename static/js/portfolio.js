@@ -39,6 +39,31 @@ document.getElementById("myImg6").addEventListener("click", function () {
     openModal("myModal6", "modalImg6", this.src, this.alt, "caption6");
 });
 
+// Event listeners for closing images
+document.getElementById("myImg").addEventListener("click", function () {
+    closeModal("myModal", "modalImg", this.src, this.alt, "caption");
+});
+
+document.getElementById("myImg2").addEventListener("click", function () {
+    closeModal("myModal2", "modalImg2", this.src, this.alt, "caption2");
+});
+
+document.getElementById("myImg3").addEventListener("click", function () {
+    closeModal("myModal3", "modalImg3", this.src, this.alt, "caption3");
+});
+
+document.getElementById("myImg4").addEventListener("click", function () {
+    closeModal("myModal4", "modalImg4", this.src, this.alt, "caption4");
+});
+
+document.getElementById("myImg5").addEventListener("click", function () {
+    closeModal("myModal5", "modalImg5", this.src, this.alt, "caption5");
+});
+
+document.getElementById("myImg6").addEventListener("click", function () {
+    closeModal("myModal6", "modalImg6", this.src, this.alt, "caption6");
+});
+
 
 // Event listeners for closing the modals
 document.getElementsByClassName("close")[0].addEventListener("click", function () {
