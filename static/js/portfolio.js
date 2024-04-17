@@ -14,56 +14,35 @@ function closeModal(modalId) {
     modal.style.display = "none";
 }
 
-// Event listeners for clicking on images
+// Event listeners for clicking on images to open modals
 document.getElementById("myImg").addEventListener("click", function () {
     openModal("myModal", "modalImg", this.src, this.alt, "caption");
 });
 
-document.getElementById("myImg2").addEventListener("click", function () {
-    openModal("myModal2", "modalImg2", this.src, this.alt, "caption2");
+// Add event listeners to close modals when clicking on modal images
+document.getElementById("modalImg").addEventListener("click", function () {
+    closeModal("myModal");
 });
 
-document.getElementById("myImg3").addEventListener("click", function () {
-    openModal("myModal3", "modalImg3", this.src, this.alt, "caption3");
+document.getElementById("modalImg2").addEventListener("click", function () {
+    closeModal("myModal2");
 });
 
-document.getElementById("myImg4").addEventListener("click", function () {
-    openModal("myModal4", "modalImg4", this.src, this.alt, "caption4");
+document.getElementById("modalImg3").addEventListener("click", function () {
+    closeModal("myModal3");
 });
 
-document.getElementById("myImg5").addEventListener("click", function () {
-    openModal("myModal5", "modalImg5", this.src, this.alt, "caption5");
+document.getElementById("modalImg4").addEventListener("click", function () {
+    closeModal("myModal4");
 });
 
-document.getElementById("myImg6").addEventListener("click", function () {
-    openModal("myModal6", "modalImg6", this.src, this.alt, "caption6");
+document.getElementById("modalImg5").addEventListener("click", function () {
+    closeModal("myModal5");
 });
 
-// Event listeners for closing images
-document.getElementById("myImg").addEventListener("click", function () {
-    closeModal("myModal", "modalImg", this.src, this.alt, "caption");
+document.getElementById("modalImg6").addEventListener("click", function () {
+    closeModal("myModal6");
 });
-
-document.getElementById("myImg2").addEventListener("click", function () {
-    closeModal("myModal2", "modalImg2", this.src, this.alt, "caption2");
-});
-
-document.getElementById("myImg3").addEventListener("click", function () {
-    closeModal("myModal3", "modalImg3", this.src, this.alt, "caption3");
-});
-
-document.getElementById("myImg4").addEventListener("click", function () {
-    closeModal("myModal4", "modalImg4", this.src, this.alt, "caption4");
-});
-
-document.getElementById("myImg5").addEventListener("click", function () {
-    closeModal("myModal5", "modalImg5", this.src, this.alt, "caption5");
-});
-
-document.getElementById("myImg6").addEventListener("click", function () {
-    closeModal("myModal6", "modalImg6", this.src, this.alt, "caption6");
-});
-
 
 // Event listeners for closing the modals
 document.getElementsByClassName("close")[0].addEventListener("click", function () {
@@ -89,3 +68,4 @@ document.getElementsByClassName("close")[4].addEventListener("click", function (
 document.getElementsByClassName("close")[5].addEventListener("click", function () {
     closeModal("myModal6");
 });
+
