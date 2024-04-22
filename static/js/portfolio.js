@@ -1,71 +1,166 @@
-function openModal(modalId, imgId, imgSrc, imgAlt, captionId) {
-    var modal = document.getElementById(modalId);
-    var modalImg = document.getElementById(imgId);
-    var captionText = document.getElementById(captionId);
+$(document).ready(function () {
+    "use strict"
 
-    modal.style.display = "block";
-    modalImg.src = imgSrc;
-    captionText.innerHTML = imgAlt;
+    /*-----------------------------------------------------------------
+        Tabs
+      -------------------------------------------------------------------*/
 
-    // Event listener to close modal when clicking on the modal image
-    modalImg.addEventListener("click", function() {
-        closeModal(modalId);
-    });
-}
+    $(".js-tabs").each(function () {
+        $(".content .tabcontent").hide()
+        $(".content .tabcontent:first").show()
+        $(".nav__item a").on("click", function () {
+            $(".nav__item a").removeClass("active")
+            $(this).addClass("active")
+            var currentTab = $(this).attr("href")
+            $(".content .tabcontent").hide()
+            $(currentTab).show()
+            $portfolioMasonry.isotope({
+                columnWidth: ".gallery-grid__item",
+                gutter: ".gutter-sizer",
+                isAnimated: true,
+            })
+            $(".js-scroll").getNiceScroll().resize()
+            return false
+        })
 
+        // Mobile close menu
+        var screenMobile = 580
 
-function closeModal(modalId) {
-    var modal = document.getElementById(modalId);
-    modal.style.display = "none";
-}
+        let windowWidth = $(window).width()
+        if (windowWidth < screenMobile) {
+            // autoscroll to content
+            $(".nav__item a").click(function (e) {
+                e.preventDefault()
+                var offset = -35
 
-// Event listeners for clicking on images
-document.getElementById("myImg").addEventListener("click", function () {
-    openModal("myModal", "modalImg", this.src, this.alt, "caption");
-});
+                $("html, body").animate(
+                    {
+                        scrollTop: $("#content").offset().top + offset,
+                    },
+                    0
+                )
+            })
+        }
+    })
 
-document.getElementById("myImg2").addEventListener("click", function () {
-    openModal("myModal2", "modalImg2", this.src, this.alt, "caption2");
-});
+    /*-----------------------------------------------------------------
+        Switch categories & Filter mobile
+      -------------------------------------------------------------------*/
 
-document.getElementById("myImg3").addEventListener("click", function () {
-    openModal("myModal3", "modalImg3", this.src, this.alt, "caption3");
-});
+    $(".select")
+        .on("click", ".placeholder", function () {
+            var parent = $(this).closest(".select")
+            if (!parent.hasClass("is-open")) {
+                parent.addClass("is-open")
+                $(".select.is-open").not(parent).removeClass("is-open")
+            } else {
+                parent.removeClass("is-open")
+            }
+        })
+        .on("click", "ul>li", function () {
+            var parent = $(this).closest(".select")
+            parent.removeClass("is-open").find(".placeholder").text($(this).text())
+            parent
+                .find("input[type=hidden]")
+                .attr("value", $(this).attr("data-value"))
 
-document.getElementById("myImg4").addEventListener("click", function () {
-    openModal("myModal4", "modalImg4", this.src, this.alt, "caption4");
-});
+            $(".filter__item").removeClass("active")
+            $(this).addClass("active")
+            var selector = $(this).attr("data-filter")
 
-document.getElementById("myImg5").addEventListener("click", function () {
-    openModal("myModal5", "modalImg5", this.src, this.alt, "caption5");
-});
+            $(".js-filter-container").isotope({
+                filter: selector,
+            })
+            return false
+        })
 
-document.getElementById("myImg6").addEventListener("click", function () {
-    openModal("myModal6", "modalImg6", this.src, this.alt, "caption6");
-});
+    /*-----------------------------------------------------------------
+        Masonry
+      -------------------------------------------------------------------*/
 
+    // Portfolio grid row
+    var $portfolioMasonry = $(".js-grid-row").isotope({
+        itemSelector: ".gallery-grid__item",
+        layoutMode: "fitRows",
+        percentPosition: true,
+        transitionDuration: "0.5s",
+        hiddenStyle: {
+            opacity: 0,
+            transform: "scale(0.001)",
+        },
+        visibleStyle: {
+            opacity: 1,
+            transform: "scale(1)",
+        },
+        fitRows: {
+            gutter: ".gutter-sizer",
+        },
+        masonry: {
+            columnWidth: ".gallery-grid__item",
+            gutter: ".gutter-sizer",
+            isAnimated: true,
+        },
+    })
 
-// Event listeners for closing the modals
-document.getElementsByClassName("close")[0].addEventListener("click", function () {
-    closeModal("myModal");a
-});
+    $portfolioMasonry.imagesLoaded().progress(function () {
+        $portfolioMasonry.isotope({
+            columnWidth: ".gallery-grid__item",
+            gutter: ".gutter-sizer",
+            isAnimated: true,
+            layoutMode: "fitRows",
+            fitRows: {
+                gutter: ".gutter-sizer",
+            },
+        })
+    })
 
-document.getElementsByClassName("close")[1].addEventListener("click", function () {
-    closeModal("myModal2");
-});
+    // Portfolio grid irregular
+    var $portfolioIrregularMasonry = $(".js-grid").isotope({
+        itemSelector: ".gallery-grid__item",
+        percentPosition: true,
+        transitionDuration: "0.5s",
+        hiddenStyle: {
+            opacity: 0,
+            transform: "scale(0.001)",
+        },
+        visibleStyle: {
+            opacity: 1,
+            transform: "scale(1)",
+        },
+        masonry: {
+            columnWidth: ".gallery-grid__item",
+            gutter: ".gutter-sizer",
+            isAnimated: true,
+        },
+    })
 
-document.getElementsByClassName("close")[2].addEventListener("click", function () {
-    closeModal("myModal3");
-});
+    $portfolioIrregularMasonry.imagesLoaded().progress(function () {
+        $portfolioIrregularMasonry.isotope({
+            columnWidth: ".gallery-grid__item",
+            gutter: ".gutter-sizer",
+            isAnimated: true,
+        })
+    })
 
-document.getElementsByClassName("close")[3].addEventListener("click", function () {
-    closeModal("myModal4");
-});
+    /*-----------------------------------------------------------------
+        mediumZoom
+      -------------------------------------------------------------------*/
 
-document.getElementsByClassName("close")[4].addEventListener("click", function () {
-    closeModal("myModal5");
-});
+    mediumZoom("[data-zoom]", {
+        margin: 30,
+    })
 
-document.getElementsByClassName("close")[5].addEventListener("click", function () {
-    closeModal("myModal6");
-});
+    /*-----------------------------------------------------------------
+        Lazyload
+      -------------------------------------------------------------------*/
+
+    lazySizes.init()
+
+    /*-----------------------------------------------------------------
+        Polyfill object-fit
+      -------------------------------------------------------------------*/
+
+    var $someImages = $("img.cover")
+    objectFitImages($someImages)
+})
+
