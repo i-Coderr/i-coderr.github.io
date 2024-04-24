@@ -1,71 +1,97 @@
-function openModal(modalId, imgId, imgSrc, imgAlt, captionId) {
-    var modal = document.getElementById(modalId);
-    var modalImg = document.getElementById(imgId);
-    var captionText = document.getElementById(captionId);
+document.addEventListener("DOMContentLoaded", function() {
+    // Get all filter links
+    const filterLinks = document.querySelectorAll('.filter__link');
 
-    modal.style.display = "block";
-    modalImg.src = imgSrc;
-    captionText.innerHTML = imgAlt;
+    // Get the gallery grid container
+    const galleryGridContainer = document.querySelector('.gallery-grid-two');
 
-    // Event listener to close modal when clicking on the modal image
-    modalImg.addEventListener("click", function() {
-        closeModal(modalId);
+    // Get the certification grid item
+    const certificationItem = document.querySelector('.category-Certifications');
+
+    // Function to handle filtering and styling
+    function handleFiltering(filterValue) {
+        // Remove 'active' class from all filter links
+        filterLinks.forEach(function(item) {
+            item.parentElement.classList.remove('active');
+        });
+
+        // Add 'active' class to the clicked filter link
+        this.parentElement.classList.add('active');
+
+        // Get all grid items
+        const gridItems = document.querySelectorAll('.gallery-grid__item');
+
+        // If filterValue is '*', show all grid items, else filter by category
+        gridItems.forEach(function(item) {
+            if (filterValue === '*' || item.classList.contains(filterValue.slice(1))) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        // Adjust the height of the gallery grid container for Certifications
+        if (filterValue === '.category-Certifications') {
+            galleryGridContainer.style.height = '380px';
+            certificationItem.style.top = '0px';
+        } else if (filterValue === '.category-Project') {
+            galleryGridContainer.style.height = '950px';
+        } else {
+            galleryGridContainer.style.height = '1330px';
+            certificationItem.style.top = '960.83px';
+        }
+    }
+
+    // Add click event listeners to each filter link
+    filterLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Get the data-filter value of the clicked filter link
+            const filterValue = this.parentElement.getAttribute('data-filter');
+
+            // Handle filtering and styling
+            handleFiltering.call(this, filterValue);
+        });
     });
-}
 
+    // Get all images
+    const images = document.querySelectorAll('.gallery-grid__image');
 
-function closeModal(modalId) {
-    var modal = document.getElementById(modalId);
-    modal.style.display = "none";
-}
+    // Modal container
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+    document.body.appendChild(modal);
 
-// Event listeners for clicking on images
-document.getElementById("myImg").addEventListener("click", function () {
-    openModal("myModal", "modalImg", this.src, this.alt, "caption");
+    // Dark overlay
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    modal.appendChild(overlay);
+
+    // Loop through each image and attach click event
+    images.forEach(function(image) {
+        image.addEventListener('click', function() {
+            const modalImage = document.createElement('img');
+            modalImage.src = this.src;
+            modalImage.classList.add('modal-image');
+            modal.innerHTML = '';
+            modal.appendChild(modalImage);
+            modal.style.display = 'flex'; // Change display to flex
+        });
+    });
+
+    // Close modal when clicked outside the image
+    modal.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+
+    // Prevent modal from closing when clicked on the image itself
+    modal.children[0].addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+
+    // Show active category when page loads
+    const activeCategory = document.querySelector('.filter__item.active .filter__link').getAttribute('data-filter');
+    handleFiltering.call(document.querySelector('.filter__item.active .filter__link'), activeCategory);
 });
 
-document.getElementById("myImg2").addEventListener("click", function () {
-    openModal("myModal2", "modalImg2", this.src, this.alt, "caption2");
-});
-
-document.getElementById("myImg3").addEventListener("click", function () {
-    openModal("myModal3", "modalImg3", this.src, this.alt, "caption3");
-});
-
-document.getElementById("myImg4").addEventListener("click", function () {
-    openModal("myModal4", "modalImg4", this.src, this.alt, "caption4");
-});
-
-document.getElementById("myImg5").addEventListener("click", function () {
-    openModal("myModal5", "modalImg5", this.src, this.alt, "caption5");
-});
-
-document.getElementById("myImg6").addEventListener("click", function () {
-    openModal("myModal6", "modalImg6", this.src, this.alt, "caption6");
-});
-
-
-// Event listeners for closing the modals
-document.getElementsByClassName("close")[0].addEventListener("click", function () {
-    closeModal("myModal");a
-});
-
-document.getElementsByClassName("close")[1].addEventListener("click", function () {
-    closeModal("myModal2");
-});
-
-document.getElementsByClassName("close")[2].addEventListener("click", function () {
-    closeModal("myModal3");
-});
-
-document.getElementsByClassName("close")[3].addEventListener("click", function () {
-    closeModal("myModal4");
-});
-
-document.getElementsByClassName("close")[4].addEventListener("click", function () {
-    closeModal("myModal5");
-});
-
-document.getElementsByClassName("close")[5].addEventListener("click", function () {
-    closeModal("myModal6");
-});
