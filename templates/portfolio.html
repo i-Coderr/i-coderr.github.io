@@ -99,6 +99,62 @@
         .w3-row-padding img {
             margin-bottom: 12px
         }
+
+        @media (max-width: 767px) {
+            .gallery-grid__item {
+                width: 100% !important;
+                position: relative !important;
+                left: 0 !important;
+                top: 0 !important;
+            }
+
+            .gallery-grid-two {
+                height: auto !important;
+            }
+
+            .select {
+                position: relative;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .placeholder {
+                display: block;
+                padding: 10px;
+                cursor: pointer;
+            }
+
+            .filter {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: none;
+                z-index: 999;
+            }
+
+            .filter.show {
+                display: block;
+            }
+
+            .filter__item {
+                padding: 10px;
+            }
+
+            .select.hidden {
+                display: none;
+            }
+        }
+
+        .filter__item.active .filter__link {
+            color: #0d86ff;
+            font-weight: bold;
+        }
     </style>
 
 </head>
@@ -162,95 +218,166 @@
                 <div class="col-12 col-md-12 col-lg-10">
                     <div class="box box-content">
                         <div>
-                            <div class="pb-0 pb-sm-2"><h1 class="title title--h1 first-title title__separate">Portfolio </h1>
-                                <div class="w3-row-padding" style="margin:0 -16px">
-                                    <div class="w3-half">
+                            <div class="pb-2">
+                                <h1 class="title title--h1 first-title title__separate">Portfolio</h1>
+                            </div>
+                            <div>
+                                <div class="select">
+                                    <span class="placeholder">Select category</span>
+                                    <ul class="filter">
+                                        <li class="filter__item">Category</li>
+                                        <li data-filter="*" class="filter__item active">
+                                            <a href="#filter" class="filter__link">All</a>
+                                        </li>
+                                        <li data-filter=".category-Project" class="filter__item">
+                                            <a href="#filter" class="filter__link">Projects</a>
+                                        </li>
+                                        <li data-filter=".category-Certifications" class="filter__item">
+                                            <a href="#filter" class="filter__link">Certifications</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="gallery-grid-two js-grid js-filter-container" style="position: relative; height: 1330px;">
+                                    <div class="gutter-sizer"></div>
+                                    <figure class="gallery-grid__item category-Project" style="position: absolute; left: 51.6279%; top: 640.2px;">
                                         <div class="box-gallery-grid__item box__border">
-                                            <h4>eBook</h4>
-                                            <img id="myImg" src="/static/img/ebook.jpg" class="img-responsive"
-                                                 style="width:100%" alt="">
-                                            <div id="myModal" class="modal">
-                                                <span class="close">&times;</span>
-                                                <img src="/static/img/ebook.jpg" class="modal-content" id="modalImg" alt="">
-                                                <div id="caption"></div>
+                                            <div class="gallery-grid__image-wrap">
+                                                <div class="portfolio-item__category">
+                                                    <span>Project</span>
+                                                </div><img id="myImg6" src="/static/img/peaksoftlms.jpg" alt="peaksoftlms.jpg" data-zoom="" class="gallery-grid__image cover medium-zoom-image ls-is-cached lazyloaded">
+                                                <div class="caption">
+                                                    <div class="blur"></div>
+                                                    <div class="caption-text">
+                                                        <h1>Tech Stack</h1>
+                                                        <p>Spring Boot - PostgreSQL - Docker - AWS</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="gallery-grid__caption">
-                                                <a href="https://github.com/peaksoft-school/ebook-b5" target="_blank" class="link-btn mt-2"> Github </a>
-                                            </div>
+                                            <figcaption class="gallery-grid__caption">
+                                                <h4 class="title title--h4 gallery-grid__title">PeaksoftLMS</h4><a href="https://github.com/peaksoft-school/peaksoftlms-a-b4" target="_blank" class="link-btn mt-2">GitHub</a>
+                                            </figcaption>
                                         </div>
-                                        <br>
-                                        <div class="box-gallery-grid__item box__border">
-                                            <h3>Bilingual</h3>
-                                            <img id="myImg2" src="/static/img/bilingual.jpg" class="img-responsive"
-                                                 style="width:100%" alt="">
-                                            <div id="myModal2" class="modal">
-                                                <span class="close">&times;</span>
-                                                <img src="/static/img/bilingual.jpg" class="modal-content" id="modalImg2" alt="">
-                                                <div id="caption2"></div>
-                                            </div>
-                                            <div class="gallery-grid__caption">
-                                                <a href="https://github.com/peaksoft-school/bilingual-b4" target="_blank" class="link-btn mt-2"> Github </a>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="box-gallery-grid__item box__border">
-                                            <h3>Task Tracker</h3>
-                                            <img id="myImg3" src="/static/img/tasktracker.jpg" class="img-responsive"
-                                                 style="width:100%" alt="">
-                                            <div id="myModal3" class="modal">
-                                                <span class="close">&times;</span>
-                                                <img src="/static/img/tasktracker.jpg" class="modal-content" id="modalImg3" alt="">
-                                                <div id="caption3"></div>
-                                            </div>
-                                            <div class="gallery-grid__caption">
-                                                <a href="https://github.com/peaksoft-school/bilingual-b4" target="_blank" class="link-btn mt-2"> Github </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </figure>
 
-                                    <div class="w3-half">
+                                    <figure class="gallery-grid__item category-Project" style="position: absolute; left: 51.6279%; top: 0px;">
                                         <div class="box-gallery-grid__item box__border">
-                                            <h3>Giftlist</h3>
-                                            <img id="myImg4" src="/static/img/giftlist.jpg" class="img-responsive"
-                                                 style="width:100%" alt="">
-                                            <div id="myModal4" class="modal">
-                                                <span class="close">&times;</span>
-                                                <img src="/static/img/giftlist.jpg" class="modal-content" id="modalImg4" alt="">
-                                                <div id="caption4"></div>
+                                            <div class="gallery-grid__image-wrap">
+                                                <div class="portfolio-item__category">
+                                                    <span>Project</span>
+                                                </div>
+                                                <img id="myImg" src="/static/img/ebook.jpg" alt="ebook.jpg" data-zoom="" class="gallery-grid__image cover medium-zoom-image ls-is-cached lazyloaded">
+                                                <div class="caption">
+                                                    <div class="blur"></div>
+                                                    <div class="caption-text">
+                                                        <h1>Tech Stack</h1>
+                                                        <p>Spring Boot - PostgreSQL - AWS - Docker</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="gallery-grid__caption">
-                                                <a href="https://github.com/peaksoft-school/giftlist-b6" target="_blank" class="link-btn mt-2"> Github </a>
-                                            </div>
+                                            <figcaption class="gallery-grid__caption">
+                                                <h4 class="title title--h4 gallery-grid__title">Ebook</h4><a href="https://github.com/peaksoft-school/ebook-b5" target="_blank" class="link-btn mt-2">GitHub</a>
+                                            </figcaption>
                                         </div>
-                                        <br>
+                                    </figure>
+
+                                    <figure class="gallery-grid__item category-Project" style="position: absolute; left: 51.6279%; top: 327.362px;">
                                         <div class="box-gallery-grid__item box__border">
-                                            <h3>Gadgetarium</h3>
-                                            <img id="myImg5" src="/static/img/gadgetarium.jpg" class="img-responsive"
-                                                 style="width:100%" alt="">
-                                            <div id="myModal5" class="modal">
-                                                <span class="close">&times;</span>
-                                                <img src="/static/img/gadgetarium.jpg" class="modal-content" id="modalImg5" alt="">
-                                                <div id="caption5"></div>
+                                            <div class="gallery-grid__image-wrap">
+                                                <div class="portfolio-item__category">
+                                                    <span>Project</span>
+                                                </div><img id="myImg2" src="/static/img/bilingual.jpg" alt="bilingual.jpg" data-zoom="bilingual.jpg" class="gallery-grid__image cover medium-zoom-image ls-is-cached lazyloaded">
+                                                <div class="caption">
+                                                    <div class="blur"></div>
+                                                    <div class="caption-text">
+                                                        <h1>Tech Stack</h1>
+                                                        <p>Spring Boot - PostgreSQL - Docker - AWS</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="gallery-grid__caption">
-                                                <a href="https://github.com/peaksoft-school/Gadgetarium-m4" target="_blank" class="link-btn mt-2"> Github </a>
-                                            </div>
+                                            <figcaption class="gallery-grid__caption">
+                                                <h4 class="title title--h4 gallery-grid__title">Bilingual</h4><a href="https://github.com/peaksoft-school/bilingual-b4" target="_blank" class="link-btn mt-2">GitHub</a>
+                                            </figcaption>
                                         </div>
-                                        <br>
+                                    </figure>
+
+                                    <figure class="gallery-grid__item category-Project" style="position: absolute; left: 0%; top: 325px;">
                                         <div class="box-gallery-grid__item box__border">
-                                            <h3>Peaksoft LMS</h3>
-                                            <img id="myImg6" src="/static/img/peaksoftlms.jpg" class="img-responsive"
-                                                 style="width:100%" alt="">
-                                            <div id="myModal6" class="modal">
-                                                <span class="close">&times;</span>
-                                                <img src="/static/img/peaksoftlms.jpg" class="modal-content" id="modalImg6" alt="">
-                                                <div id="caption6"></div>
+                                            <div class="gallery-grid__image-wrap">
+                                                <div class="portfolio-item__category">
+                                                    <span>Project</span>
+                                                </div><img id="myImg3" src="/static/img/tasktracker.jpg" alt="tasktracker.jpg" data-zoom="" class="gallery-grid__image cover medium-zoom-image ls-is-cached lazyloaded">
+                                                <div class="caption">
+                                                    <div class="blur"></div>
+                                                    <div class="caption-text">
+                                                        <h1>Tech Stack</h1>
+                                                        <p>Spring Boot - AWS - Docker - PostgreSQL</p>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="gallery-grid__caption">
-                                                <a href="https://github.com/peaksoft-school/peaksoftlms-a-b4" target="_blank" class="link-btn mt-2"> Github </a>
-                                            </div>
+                                            <figcaption class="gallery-grid__caption">
+                                                <h4 class="title title--h4 gallery-grid__title">Tasktracker</h4><a href="https://github.com/peaksoft-school/bilingual-b4" target="_blank" class="link-btn mt-2">GitHub</a>
+                                            </figcaption>
                                         </div>
-                                    </div>
+                                    </figure>
+
+                                    <figure class="gallery-grid__item category-Project" style="position: absolute; left: 0%; top: 0px;">
+                                        <div class="box-gallery-grid__item box__border">
+                                            <div class="gallery-grid__image-wrap">
+                                                <div class="portfolio-item__category">
+                                                    <span>Project</span>
+                                                </div><img id="myImg4" src="/static/img/giftlist.jpg" alt="giftlist.jpg" data-zoom="" class="gallery-grid__image cover medium-zoom-image ls-is-cached lazyloaded">
+                                                <div class="caption">
+                                                    <div class="blur"></div>
+                                                    <div class="caption-text">
+                                                        <h1>Tech Stack</h1>
+                                                        <p>Spring Boot - PostgreSQL - Docker - AWS</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <figcaption class="gallery-grid__caption">
+                                                <h4 class="title title--h4 gallery-grid__title">Giftlist</h4><a href="https://github.com/peaksoft-school/giftlist-b6" target="_blank" class="link-btn mt-2">GitHub</a>
+                                            </figcaption>
+                                        </div>
+                                    </figure>
+
+                                    <figure class="gallery-grid__item category-Project" style="position: absolute; left: 0%; top: 647px;">
+                                        <div class="box-gallery-grid__item box__border">
+                                            <div class="gallery-grid__image-wrap">
+                                                <div class="portfolio-item__category">
+                                                    <span>Project</span>
+                                                </div><img id="myImg5" src="/static/img/gadgetarium.jpg" alt="gadgetarium.jpg" data-zoom="" class="gallery-grid__image cover medium-zoom-image ls-is-cached lazyloaded">
+                                                <div class="caption">
+                                                    <div class="blur"></div>
+                                                    <div class="caption-text">
+                                                        <h1>Tech Stack</h1>
+                                                        <p>Spring Boot - PostgreSQL - Docker - AWS</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <figcaption class="gallery-grid__caption">
+                                                <h4 class="title title--h4 gallery-grid__title">Gadgetarium</h4><a href="https://github.com/peaksoft-school/Gadgetarium-m4" target="_blank" class="link-btn mt-2">GitHub</a>
+                                            </figcaption>
+                                        </div>
+                                    </figure>
+
+                                    <figure class="gallery-grid__item category-Certifications" style="position: absolute; left: 0%; top: 960.83px;">
+                                        <div class="box-gallery-grid__item box__border">
+                                            <div class="gallery-grid__image-wrap">
+                                                <div class="portfolio-item__category">
+                                                    <span>Certifications</span>
+                                                </div><img src="/static/img/harvard.jpg" alt="harvard.jpg" data-zoom="" class="gallery-grid__image cover medium-zoom-image ls-is-cached lazyloaded">
+                                                <div class="caption">
+                                                    <div class="blur"></div>
+                                                    <div class="caption-text">
+                                                        <p>Completed Harvard CS50 Introduction to Computer Science</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <figcaption class="gallery-grid__caption">
+                                                <h4 class="title title--h4 gallery-grid__title">Harvard CS50 - Intro to Computer Science</h4><a href="https://certificates.cs50.io/21691129-58fc-4e35-a061-d2dfa0f3e1f8.png?size=A4" target="_blank" class="link-btn mt-2">Verify</a>
+                                            </figcaption>
+                                        </div>
+                                    </figure>
                                 </div>
                             </div>
                         </div>
